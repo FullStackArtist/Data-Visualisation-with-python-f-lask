@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<Html>
+  <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/frame.css') }}">
+    <script src="{{url_for('static', filename='somejavascriptfile.js')}}"></script>
+    <style>
+      body{
+        background-color:light
+      }
+      p{
+        font-family: "Lucida Console", "Courier New", monospace;
+        font-size:30px;
+      }
+    </style>
+  </head>
+
+
+<body >
+  <form action="/index" method="post" enctype="multipart/form-data">
+    <div class="file-input" >
+      <div class="absposition" style="position: absolute; top: 250px;left: 600px;alt="Cannot load image" width="28%" height="70%">
+
+  <label for="file" style="font-size:23px;">
+    Select file
+    <input type="file" name ="file" style="font-size:42px; position:absolute;left:5px;opacity: 0;" >
+    <p class="file-name"></p>
+
+  </label>
+
+
+    <img src="{{ url_for('static',filename='images/Submit_P.png') }}" style="position: absolute; border-radius: 25px; top: 85px;left:0px;alt="Cannot load image" width="250px%" height="80px"/>
+    <input type=submit style="position: absolute; font-size:57px;top: 90px;left:30px;opacity: 0;" >   
+
+</div>
+</form>
+</body>
+
+</html>

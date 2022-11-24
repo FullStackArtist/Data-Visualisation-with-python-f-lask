@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='myscript.js') }}">
+<script type="text/javascript" src="{{url_for('static', filename='js/myscript.js')}}"></script>
+<script type="javascript" src="{{url_for('static', filename='myscript.js')}}"></script>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size:18px;
+}
+
+#tablehead {
+  border-collapse: collapse;
+  width: 70%;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size:18px;
+}
+
+th, td {
+  text-align: left;
+  padding: 14px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  border-radius: 15px;
+}
+p{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size:25px;
+}
+h2{
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size:25px;
+}
+.label {
+  color: white;
+  padding: 3px;
+  height:100%
+  font-family: Arial;
+}
+.Measures {background-color: #04AA6D;} /* Green */
+.Dimension {background-color: #2196F3;} /* Blue */
+</style>
+
+  </head>
+  <body>
+    <div>
+      <form action="/chart" method="post" enctype="multipart/form-data">
+        <h2 align="left" >Dimension</h2>
+        {% for i in HD %}
+        <input type="checkbox" id="vehicle1" name={{ i }} value={{ i }} >
+<span class="label Dimension">{{ i }}</span><br>
+{% endfor %}
+<h2 align="left" > Measures</h2>
+{% for i in HM %}
+<input type="checkbox" id="vehicle1" name={{ i }} value={{ i }} >
+<span class="label Measures">{{ i }}</span><br>
+{% endfor %}
+
+
+
+    <div>
+      <h2  style="position: absolute; top: 0px; left: 600px; ""> Charts </h2>
+      <div >
+
+      <img   src="{{ url_for('static',filename='Bar.png')}}"  style="position: absolute; top:100px;left: 270px;" alt="Cannot load image" width="18%" height="35%"/>
+        <p style="position: absolute; top: 280px;left: 300px;">  Bar Chart </p>
+        <input type="submit" name="Bar" value="Bar"  style="position: absolute;width:12%; height:22%; font-size:40px;top: 150px;left:300px;opacity: 0;" >
+
+
+      <img   src="{{ url_for('static',filename='Donut.png')}}"  style="position: absolute; top:90px;left: 480px;" alt="Cannot load image" width="18%" height="40%"/>
+        <p style="position: absolute; top: 280px;left: 520px;">  Donut Chart </p>
+        <input type="submit" name="Donut" value="Donut"  style="position: absolute;width:12%; height:22%; font-size:40px;top: 150px;left:520px;opacity: 0;" >
+
+
+      <img   src="{{ url_for('static',filename='Line.jpg')}}"  style="position: absolute; top:110px;left: 740px;" alt="Cannot load image" width="15%" height="30%"/>
+        <p style="position: absolute; top: 280px;left: 760px;">  Line Chart </p>
+        <input type="submit" name="Line" value="Line"  style="position: absolute;width:12%; height:22%; font-size:40px;top: 150px;left:760px;opacity: 0;">
+
+
+      <img   src="{{ url_for('static',filename='Histogram.png')}}"  style="position: absolute; top:350px;left: 270px;" alt="Cannot load image" width="18%" height="33%"/>
+        <p style="position: absolute; top: 550px;left: 300px;">  Histogram  </p>
+        <input type="submit" name="Histogram" value"Histogram", style="position: absolute;width:12%; height:22%; font-size:40px;top: 370px;left:300px;opacity: 0;" >
+
+
+      <img   src="{{ url_for('static',filename='Pie.png')}}"  style="position: absolute; top:350px;left: 480px;" alt="Cannot load image" width="18%" height="32%"/>
+        <p style="position: absolute; top: 550px;left: 520px;">  Pie Chart </p>
+        <input type="submit" name="Bar" value="Pie"  style="position: absolute;width:12%; height:22%; font-size:40px;top: 370px;left:520px;opacity: 0;" >
+
+
+      <img   src="{{ url_for('static',filename='Scatter.png')}}"  style="position: absolute; top:350px;left: 740px;" alt="Cannot load image" width="18%" height="33%"/>
+        <p style="position: absolute; top: 550px;left: 760px;">  Scatter </p>
+        <input type="submit" name="Bar"  style="position: absolute;width:12%; height:22%; font-size:40px;top: 370px;left:760px;opacity: 0;" >
+
+      </div>
+        </form>
+    </div>
+<div>
+<button id="button">Button</button>
+<img   src="{{ url_for('static',filename='Bar.png')}}"  style="position: absolute; top:100px;left: 1250px;" alt="Cannot load image" width="5%" height="10%"/>
+
+<div id="model">
+For bar choose one Dimension and one measure </div>
+<img   src="{{ url_for('static',filename='Donut.png')}}"  style="position: absolute; top:170px;left:1250px;" alt="Cannot load image" width="5%" height="10%"/>
+<img   src="{{ url_for('static',filename='Line.jpg')}}"  style="position: absolute; top:240px;left: 1250px;" alt="Cannot load image" width="5%" height="10%"/>
+<img   src="{{ url_for('static',filename='Histogram.png')}}"  style="position: absolute; top:310px;left: 1250px;" alt="Cannot load image" width="5%" height="10%"/>
+<img   src="{{ url_for('static',filename='Pie.png')}}"  style="position: absolute; top:380px;left: 1250px;" alt="Cannot load image" width="5%" height="10%"/>
+<img   src="{{ url_for('static',filename='Scatter.png')}}"  style="position: absolute; top:450px;left: 1250px;" alt="Cannot load image" width="5%" height="10%"/>
+</div>
+
+
+  </body>
+</html>
